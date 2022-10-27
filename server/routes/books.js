@@ -1,3 +1,9 @@
+/*
+COMP 229 - 002
+Nathan Heung - 301150982
+https://comp229-f2022midterm-301150982.herokuapp.com/
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -45,6 +51,7 @@ router.get('/add', (req, res, next) => {
       }
   });
 
+
 });
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -61,7 +68,6 @@ router.post('/add', (req, res, next) => {
       "Author": req.body.Author,
       "Genre": req.body.Genre
   });
-
   book.create(newBook, (err, Book) =>{
       if(err)
       {
@@ -117,7 +123,6 @@ router.post('/:id', (req, res, next) => {
         "Author": req.body.Author,
         "Genre": req.body.Genre
     });
-
     book.updateOne({_id: id}, updatedBook, (err) => {
         if(err)
         {
@@ -153,6 +158,7 @@ router.get('/delete/:id', (req, res, next) => {
               res.redirect('/books');
          }
      });
+
 });
 
 
